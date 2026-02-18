@@ -66,9 +66,9 @@
           await cpDev.initialize();
           
           // Handle terminal input (send data to device)
+          const encoder = new TextEncoder();
           term.on('data', async (data) => {
             try {
-              const encoder = new TextEncoder();
               await cpDev.write(encoder.encode(data));
             } catch (e) {
               console.error('Failed to send data:', e);
