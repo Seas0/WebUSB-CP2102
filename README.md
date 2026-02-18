@@ -6,6 +6,7 @@ Useful for reading cp2102-equiped device data from Android devices.
 
 Supported browsers (systems) - https://caniuse.com/webusb
 
+Send & Write demo
 
 ### Example
 
