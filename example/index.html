@@ -64,6 +64,17 @@
       cpDev.connect().then(async () => {
         try {
           await cpDev.initialize();
+          
+          // Handle terminal input (send data to device)
+          term.on('data', async (data) => {
+            try {
+              const encoder = new TextEncoder();
+              await cpDev.write(encoder.encode(data));
+            } catch (e) {
+              console.error('Failed to send data:', e);
+            }
+          });
+          
           const receive = async () => {
             const data = await cpDev.read();
             const s = String.fromCharCode.apply(null, new Uint8Array(data))

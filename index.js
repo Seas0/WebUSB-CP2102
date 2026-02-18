@@ -71,7 +71,7 @@ class WebUsbCp2102 {
   }
 
   async write(data) {
-    await this.usb.transferIn(this.settings.endpointNumber, data);
+    await this.usb.transferOut(this.settings.endpointNumber, data);
   }
 }
 
